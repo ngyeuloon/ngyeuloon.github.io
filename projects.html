@@ -141,8 +141,8 @@ h1 em{font-style:normal;color:var(--eridian)}
 /* ---------- institutions ---------- */
 .schools{display:grid;grid-template-columns:repeat(3,1fr);gap:12px;margin-top:26px}
 .school{background:rgba(14,21,35,.62);border:1px solid var(--hull-line);padding:18px 16px;text-align:center}
-.school .chip{background:#fff;height:74px;display:grid;place-items:center;padding:11px;margin-bottom:15px}
-.school .chip img{max-width:100%;max-height:100%;object-fit:contain;display:block}
+.school .chip{background:#fff;padding:12px;margin-bottom:15px;overflow:hidden}
+.school .chip img{display:block;width:100%;height:56px;object-fit:contain}
 .school h4{font-family:var(--display);font-weight:600;font-size:14.5px;color:#EDF4FF;line-height:1.3}
 .school p{font-family:var(--mono);font-size:9.5px;letter-spacing:.12em;text-transform:uppercase;
   color:var(--dim);margin-top:7px;line-height:1.6}
@@ -209,7 +209,8 @@ h1 em{font-style:normal;color:var(--eridian)}
   background:radial-gradient(ellipse at 55% 45%,rgba(55,227,206,.16),transparent 66%);
   filter:blur(14px)}
 .scene{position:relative;width:100%;height:auto;display:block}
-.scene .lbl{font-family:var(--mono);font-size:9.5px;letter-spacing:.16em}
+.scene .lbl{font-family:var(--mono);font-size:10.5px;letter-spacing:.16em;
+  paint-order:stroke fill;stroke:#060911;stroke-width:3.4px;stroke-linejoin:round}
 .beacon{animation:beat 2.6s ease-in-out infinite}
 @keyframes beat{0%,100%{opacity:1}50%{opacity:.45}}
 
@@ -267,7 +268,8 @@ h1 em{font-style:normal;color:var(--eridian)}
   .gallery figure:first-child img{aspect-ratio:16/9}
   .schools{grid-template-columns:1fr;gap:10px}
   .school{display:flex;align-items:center;gap:16px;text-align:left;padding:14px}
-  .school .chip{margin-bottom:0;flex:0 0 92px;height:60px}
+  .school .chip{margin-bottom:0;flex:0 0 96px;padding:9px}
+  .school .chip img{height:42px}
   .next{padding:18px;gap:12px}
   .next-t{font-size:17px}
 }
@@ -309,6 +311,8 @@ h1 em{font-style:normal;color:var(--eridian)}
 .arch .tag{font-size:8.5px;letter-spacing:.16em;fill:#6E8798}
 .arch .box.core+.tag{fill:var(--amber)}
 .arch .flag{font-size:10.5px;letter-spacing:.16em}
+.arch .rowk{font-size:10px;letter-spacing:.18em;fill:#6E8798}
+.arch .rowk.on{fill:var(--amber)}
 .arch .flag.ok{fill:var(--eridian)}
 .arch .flag.bad{fill:var(--astro)}
 </style>
@@ -331,7 +335,7 @@ h1 em{font-style:normal;color:var(--eridian)}
 <div class="shell">
   <aside class="rail">
     <p class="ship">CREW MANIFEST</p>
-    <div class="portrait"><span>NYL</span><img src="portrait.jpeg" alt="Ng Yeu Loon"
+    <div class="portrait"><span>NYL</span><img src="portrait.jpg" alt="Ng Yeu Loon"
       onerror="this.style.display='none'"></div>
     <p class="crew">Ng Yeu Loon</p>
     <p class="crew-role">Big Data Developer</p>
@@ -346,15 +350,16 @@ h1 em{font-style:normal;color:var(--eridian)}
     </div>
     <div class="comms">
       KUALA LUMPUR, MY<br>
-      <a href="mailto:yeuloon.ng@example.com">yeuloonng22219@gmail.com</a>
+      <a href="mailto:yeuloon.ng@example.com">yeuloon.ng@example.com</a>
     </div>
   </aside>
 
   <main class="stage">
   <section class="hero">
     <p class="tag">Built at Experian</p>
-    <h1>Three frameworks.</h1>
-    <p class="lede">One that watches the data, two that bring it in.</p>
+    <h1>What I've built.</h1>
+    <p class="lede">Three data frameworks at Experian, and a clinic records system for the
+      soup kitchen I volunteer at.</p>
   </section>
 
   <section class="sec">
@@ -474,6 +479,47 @@ h1 em{font-style:normal;color:var(--eridian)}
       <img src="data-lake-architecture.png" alt="Corporate data lake house &mdash; where these frameworks sit" onerror="this.closest('figure').remove()">
       <figcaption>Corporate data lake house &mdash; where these frameworks sit</figcaption>
     </figure>
+  </section>
+
+  <section class="sec">
+      <div class="sec-head">
+        <span class="sec-icon"><svg aria-hidden="true"><use href="#i-tool"/></svg></span>
+        <div class="sec-name"><span class="tag">Outside work</span><h2>Digitalising the soup kitchen clinic</h2></div>
+        <span class="chord" aria-hidden="true"><i></i><i></i><i></i><i></i><i></i></span>
+      </div>
+    <div class="before">
+      <h4>THE PROBLEM</h4>
+      <p>Symptoms and the medication dispensed were recorded on paper forms. Each visit stood
+        on its own, so <strong>a doctor on duty had no practical way to see what a patient had
+        presented with before, or what they had already been given</strong> &mdash; and the
+        people we see are often not in a position to recall it themselves.</p>
+    </div>
+
+    <article class="panel now">
+      <div class="p-top">
+        <div><h3>A client record that follows the patient, not the volunteer</h3>
+          <p class="p-org">Kechara Soup Kitchen &middot; volunteer project</p></div>
+        <span class="p-when">2024 &mdash; PRESENT</span>
+      </div>
+      <ul>
+        <li>Proposed the change and secured <strong>two tablets and a Google Drive platform</strong>
+          for the medical team to work from.</li>
+        <li>Replaced the paper form with a <strong>digital form completed at the point of
+          care</strong>, so nothing is transcribed after the fact.</li>
+        <li>Structured the records into a <strong>client database</strong>, so whichever doctor
+          is on duty can look up a patient's previous visits before treating them.</li>
+        <li>Designed the <strong>clinic setup</strong> the team runs on the weekly
+          distribution, from intake through to dispensing.</li>
+        <li>The form has been revised continuously since launch, based on what the medical team
+          found it was missing in practice.</li>
+      </ul>
+      <p class="thread"><b>IN PRACTICE</b> &nbsp;The same instinct as the work above, in a very
+        different setting. The repeated task was writing out a patient's history from scratch
+        every visit &mdash; when it was often not available to write down at all.</p>
+    </article>
+
+    <div class="panel"><div class="arch-scroll"><svg class="arch" viewBox="0 0 900 182" role="img" aria-label="Before: symptoms and medication written on a paper form, filed by date, unavailable at the next visit. Since 2024: captured on a tablet at intake into a digital form, stored in a client database on Google Drive, so the doctor on duty can see a patient prior visits."><defs><marker id="f1" markerWidth="9" markerHeight="9" refX="7.5" refY="3.2" orient="auto"><path d="M0 0 L7 3.2 L0 6.4Z" fill="#5A7080"/></marker><marker id="f2" markerWidth="9" markerHeight="9" refX="7.5" refY="3.2" orient="auto"><path d="M0 0 L7 3.2 L0 6.4Z" fill="#FFB43A"/></marker></defs><text x="8" y="49" class="rowk">BEFORE</text><g class="box cfg"><rect x="95" y="16" width="175" height="58" rx="5"/><text x="182.5" y="43" class="t">PAPER FORM</text><text x="182.5" y="60" class="st">symptoms + medication</text></g><path d="M270 45 H296" fill="none" stroke="#5A7080" stroke-width="1.5" marker-end="url(#f1)"/><g class="box cfg"><rect x="300" y="16" width="120" height="58" rx="5"/><text x="360.0" y="43" class="t">FILED</text><text x="360.0" y="60" class="st">by date</text></g><path d="M420 45 H446" fill="none" stroke="#5A7080" stroke-width="1.5" marker-end="url(#f1)"/><g class="box cfg"><rect x="450" y="16" width="200" height="58" rx="5"/><text x="550.0" y="43" class="t">NEXT VISIT</text><text x="550.0" y="60" class="st">no history at hand</text></g><text x="8" y="145" class="rowk on">SINCE 2024</text><g class="box std"><rect x="95" y="112" width="175" height="58" rx="5"/><text x="182.5" y="139" class="t">TABLET AT INTAKE</text><text x="182.5" y="156" class="st">2 devices</text></g><path d="M270 141 H296" fill="none" stroke="#FFB43A" stroke-width="1.5" marker-end="url(#f2)"/><g class="box std"><rect x="296" y="112" width="180" height="58" rx="5"/><text x="386.0" y="139" class="t">DIGITAL FORM</text><text x="386.0" y="156" class="st">captured on the spot</text></g><path d="M476 141 H502" fill="none" stroke="#FFB43A" stroke-width="1.5" marker-end="url(#f2)"/><g class="box core"><rect x="502" y="112" width="180" height="58" rx="5"/><text x="592.0" y="139" class="t">CLIENT DATABASE</text><text x="592.0" y="156" class="st">Google Drive</text></g><path d="M682 141 H708" fill="none" stroke="#FFB43A" stroke-width="1.5" marker-end="url(#f2)"/><g class="box ok"><rect x="708" y="112" width="185" height="58" rx="5"/><text x="800.5" y="139" class="t">DOCTOR ON DUTY</text><text x="800.5" y="156" class="st">sees prior visits</text></g></svg></div>
+      <p class="cap">Medical records &mdash; before and after</p></div>
   </section>
 
   <a class="next" href="contact.html"><span class="next-k">NEXT</span><span class="next-t">Get in touch</span><span class="next-a">&rarr;</span></a>
